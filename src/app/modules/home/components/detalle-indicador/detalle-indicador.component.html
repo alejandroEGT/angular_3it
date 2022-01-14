@@ -1,0 +1,25 @@
+
+<div class="container-fluid">
+
+  <div class="text-center text-primary m-3">
+      <h1>{{ in_ind?.unidad_medida | umedida | valor : in_ind?.valor }}</h1>
+  </div>
+  <form>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Nombre</span>
+      <input [disabled]="true" type="text" class="form-control text-end" value="{{in_ind?.nombre}}" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Fecha</span>
+      <input [disabled]="true" type="text" class="form-control text-end" value="{{in_ind?.fecha | date: 'dd/MM/yyyy'}}"  aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Unidad de medida</span>
+      <input [disabled]="true" type="text" value="{{in_ind?.unidad_medida}}"  class="form-control text-end"  aria-describedby="basic-addon1">
+    </div>
+  </form>
+
+</div>
+
+
+<app-grafico [tipo]="in_ind?.codigo"></app-grafico>

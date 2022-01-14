@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.image{
+  width: 4em;
+  height: 3em;
+}
+
+.color-menu{
+  background:#0C446A;
+}
+
+.color-table{
+  background:#0C446A;
+  border: 3px solid #0C446A;
+}
+
+.card .color-card{
+  background:#0C446A;
+}
+
+.btn-arrow{
+  width: 2em;
+}

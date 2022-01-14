@@ -1,0 +1,51 @@
+<div class="container-fluid pt-5">
+  <div class="card">
+    <div class="card-header color-card d-flex justify-content-between align-items-center">
+      <h4 class="card-title text-white fw-bold"><i class="fas fa-info-circle"></i> {{nombre}} -  Detalle</h4>
+      <button type="button" class="btn text-white" routerLink="/"><i
+          class="fas fa-arrow-circle-left fa-2x"></i></button>
+    </div>
+
+    <div class="card-body">
+      <div *ngIf="show" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-5">
+          <div *ngIf="!show" class="table-responsive">
+            <table class="table">
+              <thead class="color-table text-white">
+                <tr>
+                  <th>Fecha</th>
+                  <th>Valor</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let i of precios | paginate: { itemsPerPage: 10, currentPage: page }">
+
+                  <td>{{ i.fecha | date: 'dd/MM/yyyy' }}</td>
+                  <td>{{ unidad_medida | umedida | valor : i.valor }}</td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div *ngIf="!show" class="row justify-content-center">
+            <div class="col-12 col-lg-12">
+              <pagination-controls responsive="true" (pageChange)="page = $event" previousLabel="Anterior"
+                nextLabel="Siguiente">
+              </pagination-controls>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <app-grafico [tipo]="tipo"></app-grafico>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

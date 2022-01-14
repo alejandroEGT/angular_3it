@@ -1,0 +1,92 @@
+<div class="container-fluid pt-5">
+  <div class="card">
+    <div class="card-header color-card">
+      <h3 class="text-white">
+        <img
+          src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/000000/external-growth-business-innovation-wanicon-lineal-color-wanicon.png" />
+        Indicadores econónicos
+      </h3>
+    </div>
+
+    <div class="card-body">
+
+      <div *ngIf="show" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <div *ngIf="!show" class="table-responsive">
+        <table class="table">
+          <thead class="color-table text-white">
+            <tr>
+              <th>Nombre</th>
+              <th class="d-none d-sm-table-cell">U. Medida</th>
+              <th class="d-none d-sm-table-cell">Fecha</th>
+              <th class="d-none d-sm-table-cell">Valor</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of indicadores | paginate: { itemsPerPage: 10, currentPage: page }">
+              <td>
+                {{ i.nombre }}
+                <div class="d-sm-block d-xl-none d-lg-none d-md-none text-primary">
+                  {{ i.unidad_medida }}
+                </div>
+
+              </td>
+              <td class="d-none d-sm-table-cell">{{ i.unidad_medida }}</td>
+              <td class="d-none d-sm-table-cell">{{ i.fecha | date: 'dd/MM/yyyy' }}</td>
+              <td class="d-none d-sm-table-cell">{{ i.unidad_medida | umedida | valor : i.valor }}</td>
+              <td class="d-sm-block d-xl-none d-lg-none d-md-none">
+                <button type="button"
+                     class="btn btn-link"
+                     data-bs-toggle="modal"
+                     data-bs-target="#exampleModal"
+                     (click)="pasar_detalle(i);"
+                     >
+                  <i class="fas fa-info-circle fa-2x"></i>
+                </button>
+              </td>
+              <td>
+                <button (click)="redirect('/detalle', i.codigo)" class="btn btn-link">
+                  <img class="btn-arrow" src="https://img.icons8.com/fluency/48/000000/arrow.png" />
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="!show" class="row justify-content-center">
+        <div class="col-12 col-lg-5">
+          <pagination-controls responsive="true" (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente">
+          </pagination-controls>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header color-menu text-white">
+              <h5 class="modal-title" id="exampleModalLabel">{{indicador?.nombre}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <app-detalle-indicador [indicador]="indicador" >
+
+              </app-detalle-indicador>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
