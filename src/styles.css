@@ -1,4 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  font-size: 14px;
+}
+h1{
+  font-size: 28px;
+  font-family: 'Roboto: 300', Century Gothic;
+}
+h2{
+  font-size: 20px;
+  font-family: 'Roboto: 300', Century Gothic;
+}
+h3,h4,h5{
+  font-size: 18px;
+  font-family: 'Roboto: 300', Century Gothic;
+}
+#chartContainer{
+  font-family: 'Roboto: 300', Century Gothic;
+}
+table tbody, a, ul li, span, input.form-control, footer{
+  font-family: 'Roboto: 300';
+}
+
 .image{
   width: 4em;
   height: 3em;
@@ -13,10 +35,16 @@
   border: 3px solid #0C446A;
 }
 
-.card .color-card{
+.card .color-card, li.current{
   background:#0C446A;
 }
 
 .btn-arrow{
   width: 2em;
+}
+
+.footer-style{
+  padding: 8px;
+  background-color: #0C446A;
+  color:white;
 }
