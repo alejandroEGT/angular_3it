@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
+## Pasos
+
+Descargar o clonar proyecto ejemplo: `git clone https://github.com/alejandroEGT/angular_3it.git [nombre_proyecto]`
+
+Despues hacer dentro del proyecto `npm install` para agregar las dependecias 
+
+Correr app `ng serve`
+
+## ----------------------------------------------------------------
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
