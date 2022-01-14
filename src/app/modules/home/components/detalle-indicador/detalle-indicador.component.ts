@@ -1,26 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Indicador } from 'src/app/shared/models/indicador';
 
-
 @Component({
   selector: 'app-detalle-indicador',
   templateUrl: './detalle-indicador.component.html',
-  styleUrls: ['./detalle-indicador.component.css']
+  styleUrls: ['./detalle-indicador.component.css'],
 })
 export class DetalleIndicadorComponent implements OnInit {
-  in_ind:Indicador;
+  in_ind: Indicador;
 
-  @Input() set indicador(data:Indicador){
-    if(data){
+  @Input() set indicador(data: Indicador) {
+    if (data) {
       this.in_ind = data;
     }
   }
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-
-  }
-
-
-
+  ngOnInit(): void {}
 }
